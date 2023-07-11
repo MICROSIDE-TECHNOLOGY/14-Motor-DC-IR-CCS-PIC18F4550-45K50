@@ -1,0 +1,5 @@
+Compiling C:\Users\Martin Hdez\Desktop\18F45K50\Práctica 14 – Motor DC + Infrarrojo\Motor DC + Infrarrojo on 01-dic.-20 at 12:18
+>>> Warning 203 "C:\Users\Martin Hdez\Desktop\18F45K50\Práctica 14 – Motor DC + Infrarrojo\Motor DC + Infrarrojo.c" Line 36(1,1): Condition always TRUE
+      Memory usage:   ROM=2%      RAM=0% - 1%
+      0 Errors,  1 Warnings.
+Build Successful.

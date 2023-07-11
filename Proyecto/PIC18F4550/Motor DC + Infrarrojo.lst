@@ -1,0 +1,324 @@
+CCS PCH C Compiler, Version 5.090, 13314               01-dic.-20 12:19
+
+               Filename:   C:\Users\Martin Hdez\Desktop\18F4550\14 Motor DC + Infrarrojo\Motor DC + Infrarrojo.lst
+
+               ROM used:   516 bytes (2%)
+                           Largest free fragment is 24056
+               RAM used:   6 (0%) at main() level
+                           17 (1%) worst case
+               Stack used: 0 locations
+               Stack size: 31
+
+*
+2000:  GOTO   219C
+.................... /*
+.................... AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V.
+.................... FECHA: JUNIO 2019
+.................... */
+.................... 
+.................... /*
+.................... ---------------------------------------------------------------------------
+.................... Esta práctica consiste en variar la velocidad de un motor por medio de un sensor
+.................... SHARP usando los módulos PWM y ADC.
+.................... ---------------------------------------------------------------------------
+.................... */
+.................... 
+.................... 
+.................... #include <18F4550.h>                            //Incluye el microcontrolador con el que se va a trabajar 
+.................... //////////// Standard Header file for the PIC18F4550 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4550
+*
+2036:  MOVLW  8E
+2038:  MOVWF  00
+203A:  MOVFF  07,01
+203E:  MOVFF  06,02
+2042:  CLRF   03
+2044:  MOVF   01,F
+2046:  BNZ   205A
+2048:  MOVFF  02,01
+204C:  CLRF   02
+204E:  MOVLW  08
+2050:  SUBWF  00,F
+2052:  MOVF   01,F
+2054:  BNZ   205A
+2056:  CLRF   00
+2058:  BRA    206A
+205A:  BCF    FD8.0
+205C:  BTFSC  01.7
+205E:  BRA    2068
+2060:  RLCF   02,F
+2062:  RLCF   01,F
+2064:  DECF   00,F
+2066:  BRA    205A
+2068:  BCF    01.7
+206A:  GOTO   21C8 (RETURN)
+206E:  MOVF   06,W
+2070:  BTFSC  FD8.2
+2072:  BRA    2156
+2074:  MOVWF  00
+2076:  MOVF   0A,W
+2078:  BTFSC  FD8.2
+207A:  BRA    2156
+207C:  ADDWF  00,F
+207E:  BNC   2088
+2080:  MOVLW  81
+2082:  ADDWF  00,F
+2084:  BC    2156
+2086:  BRA    2090
+2088:  MOVLW  7F
+208A:  SUBWF  00,F
+208C:  BNC   2156
+208E:  BZ    2156
+2090:  MOVFF  07,0E
+2094:  MOVF   0B,W
+2096:  XORWF  0E,F
+2098:  BSF    07.7
+209A:  BSF    0B.7
+209C:  MOVF   09,W
+209E:  MULWF  0D
+20A0:  MOVFF  FF4,10
+20A4:  MOVF   08,W
+20A6:  MULWF  0C
+20A8:  MOVFF  FF4,03
+20AC:  MOVFF  FF3,0F
+20B0:  MULWF  0D
+20B2:  MOVF   FF3,W
+20B4:  ADDWF  10,F
+20B6:  MOVF   FF4,W
+20B8:  ADDWFC 0F,F
+20BA:  MOVLW  00
+20BC:  ADDWFC 03,F
+20BE:  MOVF   09,W
+20C0:  MULWF  0C
+20C2:  MOVF   FF3,W
+20C4:  ADDWF  10,F
+20C6:  MOVF   FF4,W
+20C8:  ADDWFC 0F,F
+20CA:  MOVLW  00
+20CC:  CLRF   02
+20CE:  ADDWFC 03,F
+20D0:  ADDWFC 02,F
+20D2:  MOVF   07,W
+20D4:  MULWF  0D
+20D6:  MOVF   FF3,W
+20D8:  ADDWF  0F,F
+20DA:  MOVF   FF4,W
+20DC:  ADDWFC 03,F
+20DE:  MOVLW  00
+20E0:  ADDWFC 02,F
+20E2:  MOVF   07,W
+20E4:  MULWF  0C
+20E6:  MOVF   FF3,W
+20E8:  ADDWF  03,F
+20EA:  MOVF   FF4,W
+20EC:  ADDWFC 02,F
+20EE:  MOVLW  00
+20F0:  CLRF   01
+20F2:  ADDWFC 01,F
+20F4:  MOVF   09,W
+20F6:  MULWF  0B
+20F8:  MOVF   FF3,W
+20FA:  ADDWF  0F,F
+20FC:  MOVF   FF4,W
+20FE:  ADDWFC 03,F
+2100:  MOVLW  00
+2102:  ADDWFC 02,F
+2104:  ADDWFC 01,F
+2106:  MOVF   08,W
+2108:  MULWF  0B
+210A:  MOVF   FF3,W
+210C:  ADDWF  03,F
+210E:  MOVF   FF4,W
+2110:  ADDWFC 02,F
+2112:  MOVLW  00
+2114:  ADDWFC 01,F
+2116:  MOVF   07,W
+2118:  MULWF  0B
+211A:  MOVF   FF3,W
+211C:  ADDWF  02,F
+211E:  MOVF   FF4,W
+2120:  ADDWFC 01,F
+2122:  INCF   00,F
+2124:  BTFSC  01.7
+2126:  BRA    2132
+2128:  RLCF   0F,F
+212A:  RLCF   03,F
+212C:  RLCF   02,F
+212E:  RLCF   01,F
+2130:  DECF   00,F
+2132:  MOVLW  00
+2134:  BTFSS  0F.7
+2136:  BRA    214C
+2138:  INCF   03,F
+213A:  ADDWFC 02,F
+213C:  ADDWFC 01,F
+213E:  MOVF   01,W
+2140:  BNZ   214C
+2142:  MOVF   02,W
+2144:  BNZ   214C
+2146:  MOVF   03,W
+2148:  BNZ   214C
+214A:  INCF   00,F
+214C:  BTFSC  0E.7
+214E:  BSF    01.7
+2150:  BTFSS  0E.7
+2152:  BCF    01.7
+2154:  BRA    215E
+2156:  CLRF   00
+2158:  CLRF   01
+215A:  CLRF   02
+215C:  CLRF   03
+215E:  GOTO   21EA (RETURN)
+2162:  MOVLW  8E
+2164:  MOVWF  00
+2166:  MOVF   05,W
+2168:  SUBWF  00,F
+216A:  MOVFF  06,02
+216E:  MOVFF  07,01
+2172:  BSF    02.7
+2174:  MOVF   00,F
+2176:  BZ    218A
+2178:  BCF    FD8.0
+217A:  MOVF   02,F
+217C:  BNZ   2182
+217E:  MOVF   01,F
+2180:  BZ    218A
+2182:  RRCF   02,F
+2184:  RRCF   01,F
+2186:  DECFSZ 00,F
+2188:  BRA    2178
+218A:  BTFSS  06.7
+218C:  BRA    2198
+218E:  COMF   01,F
+2190:  COMF   02,F
+2192:  INCF   01,F
+2194:  BTFSC  FD8.2
+2196:  INCF   02,F
+2198:  GOTO   21FC (RETURN)
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=8                                   // Configura el ADC a 8 bits
+.................... #use delay(clock=48Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
+.................... #build(reset=0x02000,interrupt=0x02008)         //Asignación de los vectores de reset e interrupción
+.................... #org 0x0000,0x1FFF {}                           //Reserva espacio en la memoria para la versión con bootloader
+.................... 
+.................... int VALOR_ADC;                                  //Variable para almacenar el valor leído del ADC
+.................... 
+.................... void SisInit()
+.................... 
+.................... {
+....................     
+....................     setup_timer_2 (T2_DIV_BY_16, 254, 16);          //Configura Timer2
+*
+2008:  MOVLW  78
+200A:  IORLW  06
+200C:  MOVWF  FCA
+200E:  MOVLW  FE
+2010:  MOVWF  FCB
+.................... 
+....................     setup_ccp1 (CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L);    //Configura el módulo CCP para uso del PWM
+2012:  BCF    F94.2
+2014:  BCF    F8B.2
+2016:  MOVLW  0C
+2018:  MOVWF  FBD
+201A:  CLRF   FB7
+201C:  CLRF   FB6
+.................... 
+....................     setup_adc_ports (AN0);                                      //Configura solo el puerto A0 como entrada analógica
+201E:  MOVF   FC1,W
+2020:  ANDLW  C0
+2022:  IORLW  0E
+2024:  MOVWF  FC1
+.................... 
+....................     setup_adc (ADC_CLOCK_DIV_8);                                //Configura oscilador para la conversión
+2026:  MOVF   FC0,W
+2028:  ANDLW  C0
+202A:  IORLW  01
+202C:  MOVWF  FC0
+202E:  BCF    FC0.7
+2030:  BSF    FC2.0
+2032:  GOTO   21AE (RETURN)
+.................... 
+.................... }
+.................... 
+.................... void main(void)
+*
+219C:  CLRF   FF8
+219E:  BCF    FD0.7
+21A0:  MOVF   FC1,W
+21A2:  ANDLW  C0
+21A4:  IORLW  0F
+21A6:  MOVWF  FC1
+21A8:  MOVLW  07
+21AA:  MOVWF  FB4
+.................... 
+.................... {
+....................      SisInit();
+21AC:  BRA    2008
+.................... 
+....................      while (1)
+.................... 
+....................           {
+.................... 
+....................                set_adc_channel (0);                             //Selecciona el canal 0 para la conversión
+21AE:  MOVLW  00
+21B0:  MOVWF  01
+21B2:  MOVF   FC2,W
+21B4:  ANDLW  C3
+21B6:  IORWF  01,W
+21B8:  MOVWF  FC2
+.................... 
+....................                VALOR_ADC = read_adc ()*1.53;                    //Lee el valor del ADC y lo guarda en la variable
+21BA:  BSF    FC2.1
+21BC:  BTFSC  FC2.1
+21BE:  BRA    21BC
+21C0:  CLRF   07
+21C2:  MOVFF  FC4,06
+21C6:  BRA    2036
+21C8:  MOVFF  03,09
+21CC:  MOVFF  02,08
+21D0:  MOVFF  01,07
+21D4:  MOVFF  00,06
+21D8:  MOVLW  0A
+21DA:  MOVWF  0D
+21DC:  MOVLW  D7
+21DE:  MOVWF  0C
+21E0:  MOVLW  43
+21E2:  MOVWF  0B
+21E4:  MOVLW  7F
+21E6:  MOVWF  0A
+21E8:  BRA    206E
+21EA:  MOVFF  03,08
+21EE:  MOVFF  02,07
+21F2:  MOVFF  01,06
+21F6:  MOVFF  00,05
+21FA:  BRA    2162
+21FC:  MOVFF  01,04
+.................... 
+....................                set_pwm1_duty (VALOR_ADC);                       
+2200:  MOVFF  04,FBE
+2204:  BRA    21AE
+.................... 
+....................           }
+.................... 
+.................... }
+2206:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC07   PLL12 CPUDIV1 NOUSBDIV HS FCMEN IESO
+   Word  2: 1E26   PUT BROWNOUT VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
