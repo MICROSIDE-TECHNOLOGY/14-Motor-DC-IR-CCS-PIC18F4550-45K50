@@ -5,52 +5,51 @@
 003     @SCRATCH
 004     VALOR_ADC
 005-008 @SFTOI.P1
-005     MAIN.@SCRATCH1
-006-009 @MULFF.P1
-006-007 @ITOF.P2
+005     main.@SCRATCH1
+006-007 @ITOF.P1
+006-009 @MULFF.P2
 00A-00D @MULFF.P1
 00E     @MULFF.@SCRATCH1
 00F     @MULFF.@SCRATCH2
 010     @MULFF.@SCRATCH3
 F78.6   C2OUT
 F79.6   C1OUT
-F90     CCP_2
 F90     CCP_2_LOW
+F90     CCP_2
 F91     CCP_2_HIGH
-FBE     CCP_1_LOW
 FBE     CCP_1
+FBE     CCP_1_LOW
 FBF     CCP_1_HIGH
-FE1-FE2 @READ_PACKED_MEMORY.P1
-FE1-FE2 @WRITE_PACKED_MEMORY.P2
-FE9-FEA @WRITE_PROGRAM_MEMORY.P1
-FE9-FEA @READ_PACKED_MEMORY.P2
-FE9-FEA @READ_PROGRAM_MEMORY.P3
-FE9-FEA @WRITE_PACKED_MEMORY.P4
-FF6-FF8 @READ_PROGRAM_MEMORY.P1
-FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+FE1-FE2 @WRITE_PACKED_MEMORY.P1
+FE1-FE2 @READ_PACKED_MEMORY.P2
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
 
 ROM Allocation:
-002008  SisInit
-00204C  @ITOF
-002084  @MULFF
-002178  @SFTOI
-0021B2  MAIN
-0021B2  @cinit1
-0021D0  @cinit2
+002008  @ITOF
+002040  @MULFF
+002134  @SFTOI
+00216E  main
+00216E  @cinit1
+00218C  @cinit2
 
 Project Directory:
-    C:\Users\Martin Hdez\Desktop\18F45K50\Práctica 14 – Motor DC + Infrarrojo\
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\14-Motor-DC-IR-CCS-PIC18F4550-45K50\Proyecto\PIC18F45K50\
 
 Project Files:
-    Motor DC + Infrarrojo.c                                 [30-nov.-20 14:51  CRC=787D1F02]
-    D:\Programas\PICC\Devices\18F45K50.h                    [02-oct.-19 09:47  CRC=5092E4C4]
+    Motor DC + Infrarrojo.c                                 [30-ago.-23 16:45  CRC=65FF55AA]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\18F45K50.h [02-may.-23 08:34  CRC=7779E332]
 
-Source signature=19A2E88A
+Source signature=54F31C0E
 Program memory checksum=0000
-Hex file CRC=3B39
+Hex file CRC=9809
 
 Units:
-    C:\Users\Martin Hdez\Desktop\18F45K50\Práctica 14 – Motor DC + Infrarrojo\Motor DC + Infrarrojo (main)
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC18F\14-Motor-DC-IR-CCS-PIC18F4550-45K50\Proyecto\PIC18F45K50\Motor DC + Infrarrojo (main)
 
 Compiler Settings:
     Processor:      PIC18F45K50
@@ -59,7 +58,10 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:       CCS5
+    Compile Mode:   CCS5
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
 Output Files:
     XREF file:   Motor DC + Infrarrojo.xsym
